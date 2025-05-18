@@ -1,0 +1,12 @@
+input[id] {
+    color: red;
+    border: 10px solid red;
+}
+input[class] {
+    color: green;
+    border: 5px solid green;
+}
+input::placeholder{
+    color: blue !important;
+    text-transform: capitalize;
+}

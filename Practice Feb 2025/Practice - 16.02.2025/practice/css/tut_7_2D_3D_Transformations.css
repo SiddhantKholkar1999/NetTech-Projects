@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/* Translate used for movement of positions of elements */
+.translate {
+    width: 300px;
+    height: 300px;
+    background: red;
+    transform: translate(600px, 100px);
+}
+
+.rotate {
+    width: 200px;
+    height: 250px;
+    background: green;
+    margin: 100px;
+    transform: rotate(-20deg);
+}
+
+/* matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY()) */
+.matrix {
+    width: 200px;
+    height: 250px;
+    background: yellow;
+    /* matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY()) */
+    transform: matrix(1, -0.5, 0, 1, 0, 0);
+}

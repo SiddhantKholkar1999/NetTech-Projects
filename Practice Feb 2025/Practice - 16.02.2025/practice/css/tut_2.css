@@ -1,0 +1,93 @@
+/* SKEW */
+.box{
+    border: black 5px;
+    margin: 20px;
+    padding: 10px;
+    display: inline-block;
+}
+.text {
+    border: black 5px;
+    margin: 20px;
+    padding: auto;
+    display: inline-block;
+}
+img{
+    width: 200px;
+    height: 200px;
+}
+
+.skew-x:hover{
+    /* skewed 20 degree along x-axis */
+    transform: skewX(20deg);    
+}
+.skew-y:hover{
+    /* skewed 20 degree along y-axis */
+    transform: skewY(20deg);
+}
+.skew-xy:hover{
+    /* skewed 20 degree along x-axis & y-axis */
+    transform: skew(20deg,-30deg);
+}
+
+/* ROTATION */
+.box1 {
+    width: 300px;
+    height: 300px;
+    background-color: brown;
+    margin: 40px;
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    line-height: 250px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: xx-large;
+    font-style: oblique;
+    text-transform: capitalize;
+}
+
+.rotate:hover{
+    rotate: 20deg;
+}
+.rotate_45:hover{
+    rotate: 45deg;
+}
+.rotate_90:hover{
+    rotate: 90deg;
+}
+.rotate_negative:hover{
+    rotate: -60deg;
+}
+
+.rotate:hover::before {
+    content: none;
+}
+
+.rotate_45:hover::before {
+    content: none;
+}
+
+.rotate_90:hover::before {
+    content: none;
+}
+
+.rotate_negative:hover::before {
+    content: none;
+}
+
+.rotate:hover::after {
+    content: "20 NORMAL";
+}
+
+.rotate_45:hover::after {
+    content: "45 NORMAL";
+}
+
+.rotate_90:hover::after {
+    content: "90 NORMAL";
+}
+
+.rotate_negative:hover::after {
+    content: "-60 NORMAL";
+}

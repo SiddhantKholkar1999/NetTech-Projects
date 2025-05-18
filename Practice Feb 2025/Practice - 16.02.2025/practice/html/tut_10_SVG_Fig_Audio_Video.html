@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG, Variables, Fig. & Audio and Video</title>
+    <style>
+        .svg {
+            border: 2px solid rebeccapurple;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>SVG Example</h1>
+    <svg class="svg" width="500" height="400">
+        <!-- Circle -->
+        <!-- cx and cy center coordinates of circle -->
+        <!-- r is radius -->
+        <circle cx="250" cy="140" r="50" border="2px" fill="white" stroke="indigo" stroke-width="8" />
+
+        <!-- Line -->
+        <!-- x1 and y1 is starting point -->
+        <!-- x2 and y2 is ending point -->
+        <line x1="300" y1="300" x2="200" y2="200" stroke="red" stroke-width="4" />
+
+        <!-- Rectangle -->
+        <rect x="0" y="0" width="500" height="80" fill="orange" />
+        <rect x="0" y="200" width="500" height="80" fill="green" />
+
+        <!-- Text -->
+        <!-- x and y is the position of the text -->
+        <text x="150" y="350" font-size="24">This is Indian Flag</text>
+    </svg>
+
+    <!-- Figure Tags and Captions -->
+    <figure>
+        <!-- <img src="pic_trulli.jpg" alt="Trulli" style="width:100%"> -->
+        <img src="https://cdn.pixabay.com/photo/2014/03/25/15/19/man-296526_1280.png" alt="Trulli" width="100"
+            height="200">
+        <!-- <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption> -->
+        <figcaption>Human Figure of India aka Bharatvaasi</figcaption>
+    </figure>
+
+    <!-- HTML VIDEO TAGS -->
+    <!-- This is Without Sound -->
+    <video width="400" height="200" controls>
+        <source src="../utils/India.mp4" type="video/mp4" />
+    </video>
+    <!-- This is With Sound -->
+    <video width="400" height="200" controls>
+        <source src="../utils/India.mp4" type="video/mp4" />
+        <source src="../utils/India.mp4" type="video/ogg">
+    </video>
+
+    <!-- HTML AUDIO TAGS -->
+    <Audio controls>
+        <source src="../utils/India_Music.mp3" />
+    </Audio>
+</body>
+
+</html>

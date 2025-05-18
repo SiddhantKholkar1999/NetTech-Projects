@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 200vh;
+}
+
+h1 {
+    position: relative;
+    top: 25%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+}
+
+.container{
+    background: darkgreen;
+    height: 500px;
+    width: 750px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/* STATIC */
+.mini_box_static {
+    color: white;
+    background: red;
+    position: static;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+
+.mini_box_static:hover {
+    display: inline;
+}
+
+.mini_box_static p {
+    display: none;
+}
+
+.mini_box_static:hover > p {
+    display: inline;
+}
+/* END OF STATIC */
+
+/* RELATIVE */
+.mini_box_relative {
+    display: none;
+    color: white;
+    background: red;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+
+.mini_box_relative:hover {
+    display: inline;
+}
+
+.mini_box_relative p {
+    display: none;
+}
+
+.mini_box_relative:hover > p {
+    display: inline;
+}
+/* END OF RELATIVE */
+
+/* ABSOLUTE */
+.mini_box_absolute {
+    color: white;
+    background: red;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(0%, 50%);
+    padding: 20px;
+}
+
+.mini_box_absolute:hover {
+    display: inline;
+}
+
+.mini_box_absolute p {
+    display: none;
+}
+
+.mini_box_absolute:hover > p {
+    display: inline;
+}
+/* END OF ABSOLUTE */
+
+/* FIXED */
+.mini_box_fixed {
+    color: white;
+    background: red;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+
+.mini_box_fixed:hover {
+    display: inline;
+}
+
+.mini_box_fixed p {
+    display: none;
+}
+
+.mini_box_fixed:hover > p {
+    display: inline;
+}
+/* END OF FIXED */
+
+/* STICKY */
+.mini_box_sticky{
+    color: white;
+    background: red;
+    position: sticky;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+
+.mini_box_sticky:hover {
+    display: inline;
+}
+
+.mini_box_sticky p {
+    display: none;
+}
+
+.mini_box_sticky:hover > p {
+    display: inline;
+}
+/* END OF STICKY */

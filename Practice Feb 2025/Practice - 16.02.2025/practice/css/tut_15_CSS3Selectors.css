@@ -1,0 +1,17 @@
+.parent > .child-1 , .child-4 {
+    color: green;
+    font-weight: 700;
+}
+.parent>.child-2+
+.child-3 {
+    color: red;
+    font-weight: 700;
+}
+.parent>.child-5>.sub-child-1~.sub-child-2 {
+    color: purple;
+    font-weight: 700;
+}
+.parent>.child-6>span~span {
+    color: magenta;
+    font-weight: 900;
+}

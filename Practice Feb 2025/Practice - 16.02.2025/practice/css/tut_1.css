@@ -1,0 +1,85 @@
+*{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-image: url("https://cdn.pixabay.com/photo/2023/05/19/10/15/parrot-8004146_1280.jpg");
+}
+fieldset, input, legend, label {
+    background:purple;
+}
+label {
+    font-style: italic;
+}
+legend {
+    font-family: fantasy;
+}
+textarea{
+    background: darkgreen;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+#inpRange{
+    background-color: green;
+    accent-color: yellow;
+    color: aqua;
+}
+input::placeholder{
+    font-family: cursive;
+}
+.A{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: oblique;
+}
+#submit{
+    background-color: aquamarine;
+}
+/* !important helps to decide the order of CSS selectors */
+/* Note: Same CSS selector having !important which uses Hover or any other psuedo elements 
+then !important needs to be mentioned in Hover or any other psuedo elements   */
+h1{
+    border: 2px solid orange;
+    padding: 4px;
+    margin: 4px;
+    background: red !important;
+    opacity: 0.5;
+    transform: scale(1);
+}
+h1 {
+    border: 2px solid orangered;
+    padding: 4px;
+    margin: 4px;
+    background: blue;
+    opacity: 0.5;
+    transform: scale(1);
+}
+h1:hover,h2:hover,h3:hover,h4:hover{
+    background: purple !important;
+    opacity: 1;
+    transform: scale(1.8);
+    fill-opacity: 0;
+    text-align: center;
+}
+h2{
+    border: 2px solid red;
+    padding: 4px;
+    margin: 4px;
+    background: orange;
+    opacity: 0.5;
+    transform: scale(1);
+}
+h3 {
+    border: 2px solid orangered;
+    padding: 4px;
+    margin: 4px;
+    background: lightgreen;
+    opacity: 0.5;
+    transform: scale(1);
+}
+h4 {
+    border: 2px solid lightgreen;
+    padding: 4px;
+    margin: 4px;
+    background: orangered;
+    opacity: 0.5;
+    transform: scale(1);
+}

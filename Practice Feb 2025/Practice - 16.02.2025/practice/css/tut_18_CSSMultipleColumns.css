@@ -1,0 +1,12 @@
+.container {
+    column-count: 5;
+    column-gap: 50px;
+    column-rule-style: groove;
+    column-rule-width: 15px;
+    border: 10px solid transparent;
+        border-image: url(https://static.vecteezy.com/system/resources/thumbnails/048/732/427/small_2x/colorful-scallop-frame-border-in-seven-rainbow-colors-png.png) 70 round;
+}
+h1 {
+    border: 10px solid transparent;
+    border-image: url(https://static.vecteezy.com/system/resources/thumbnails/048/732/427/small_2x/colorful-scallop-frame-border-in-seven-rainbow-colors-png.png) 70 round;
+}

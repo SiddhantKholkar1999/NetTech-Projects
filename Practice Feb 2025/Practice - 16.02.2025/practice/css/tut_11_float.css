@@ -1,0 +1,18 @@
+.box {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-color: lightseagreen;
+}
+
+.clearfix {
+    clear: both; /* Ensures no floating elements affect this element */
+    width: 100px;
+    height: 100px;
+    background-color: goldenrod;
+}
+
+p {
+    float: right;
+}

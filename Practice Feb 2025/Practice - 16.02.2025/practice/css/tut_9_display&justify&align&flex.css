@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+.main {
+    background-color: blueviolet;
+    height: 100vh;
+    display: flex;
+    align-items: center; /* align-items is used to align position of elements vertically  */
+    justify-content: center; /* justify-content is used to align position of elements horizontally  */
+    gap: 20px;
+    /* elements are arranged in a row and in proper order  */
+    flex-direction: row;
+    /* elements are arranged in a row and in reverse order  */
+    /* flex-direction: row-reverse; */
+    /* elements are arranged in a column and in proper order  */
+    /* flex-direction: column; */
+    /* elements are arranged in a column and in reverse order  */
+    /* flex-direction: column-reverse; */
+    /* elements are wrapped in order to be truly flexible at any device*/
+    flex-wrap: wrap;
+    /* elements are wrapped in order to be truly flexible at any device but wrapped elements gets arranged in reverse order*/
+    /* flex-wrap: wrap-reverse; */
+    /* elements are by default at no wrap mode at any device*/
+    /* flex-wrap: nowrap; */
+}
+
+.child {
+    background-color: chartreuse;
+    height: 70px;
+    width: 70px;
+    text-align: center;
+}
+
+#A{
+    flex-grow: 0.1;
+}
+
+#B{
+    flex-basis: 30px;
+}
+
+#D{
+    flex-shrink: 2;
+}
+
+#E{
+    flex: 0.2 1 5px;
+}

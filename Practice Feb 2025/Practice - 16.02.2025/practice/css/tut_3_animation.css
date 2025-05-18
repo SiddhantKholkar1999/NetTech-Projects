@@ -1,0 +1,56 @@
+.hello{
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 85px;
+    text-align: center;
+}
+
+.hello:hover {
+    transform: scale(2);
+    transition: ease;
+    transition-duration: 0.5s;
+    transition-delay: 0.7s;
+}
+
+.animation1,
+.animation2 {
+    animation-name: first;
+    animation-duration: 2.4s;
+    animation-delay: 0.3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    text-align: center;
+    background: tomato;
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 85px;
+}
+
+.animation1 {
+    animation-name: second !important;
+    background: blueviolet !important;
+    color: white;
+}
+
+/* Animations happens with the help of keyframes */
+@keyframes first{
+    from {
+        translate: 300vw 0;
+        scale: 200% 1;
+    }
+    to {
+        translate: 0 0;
+        scale: 100% 1;
+    }
+}
+
+@keyframes second{
+    from {
+        translate: -300vw 0;
+        scale: 200% 1;
+    }
+    to {
+        translate: 0 0;
+        scale: 100% 1;
+    }
+}
