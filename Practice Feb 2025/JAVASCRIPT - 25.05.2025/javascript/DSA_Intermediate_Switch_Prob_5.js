@@ -5,14 +5,30 @@ console.log("3. Multiply");
 console.log("4. Divide");
 console.log("5. Exit");
 
-let num1 = process.argv[2];
-let num2 = process.argv[3];
-let choice = process.argv[4];
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
 
-simpleCalculator(num1,num2,choice);
+readline.question('Choose the Option : ', (choice) => {
+    console.log(`You have Chosen option ${choice}`);
+    // readline.close();
+    readline.question('Enter Number 1 : ', (num1) => {
+        console.log(`num1 : ${num1}`);
+        readline.question('Enter Number 1 : ', (num2) => {
+            console.log(`num2 : ${num2}`);
+            simpleCalculator(parseFloat(num1), parseFloat(num2), choice);
+            readline.close();
+        });
+    });
+});
 
-function simpleCalculator(num1,num2,operator) {
-    switch (operator) {
+// let num1 = process.argv[2];
+// let num2 = process.argv[3];
+// let choice = process.argv[4];
+
+function simpleCalculator(num1,num2,choice) {
+    switch (choice) {
         case '1':
             console.log("Addition is performed");
             console.log(num1," + ",num2," = ",num1 + num2);
