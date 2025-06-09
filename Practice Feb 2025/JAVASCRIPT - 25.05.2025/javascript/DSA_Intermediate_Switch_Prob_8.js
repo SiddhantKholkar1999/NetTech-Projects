@@ -37,7 +37,7 @@ function currencyConversion(currencyVal) {
             console.log("1", currencyVal, "=", conversionRate, "INR");
             break;
         case "ANG":
-            console.log("Australian Dollar");
+            console.log("Netherlands Antillean Guilder");
             conversionRate = 55.9397;
             console.log("1", currencyVal, "=", conversionRate, "INR");
             break;
