@@ -13,14 +13,19 @@ const readline = require('readline').createInterface({
 readline.question('Choose the Option : ', (choice) => {
     console.log(`You have Chosen option ${choice}`);
     // readline.close();
-    readline.question('Enter Number 1 : ', (num1) => {
-        console.log(`num1 : ${num1}`);
-        readline.question('Enter Number 1 : ', (num2) => {
-            console.log(`num2 : ${num2}`);
-            simpleCalculator(parseFloat(num1), parseFloat(num2), choice);
-            readline.close();
+    if (choice == '5') {
+        simpleCalculator(0, 0, choice);
+        readline.close();
+    } else {
+        readline.question('Enter Number 1 : ', (num1) => {
+            console.log(`num1 : ${num1}`);
+            readline.question('Enter Number 1 : ', (num2) => {
+                console.log(`num2 : ${num2}`);
+                simpleCalculator(parseFloat(num1), parseFloat(num2), choice);
+                readline.close();
+            });
         });
-    });
+    }
 });
 
 // let num1 = process.argv[2];
@@ -52,7 +57,7 @@ function simpleCalculator(num1,num2,choice) {
             break;
         case '5':
             console.log("Exited Successfully");
-            exit();
+            break;
         default:
             console.log("Not a Valid Option");
     }
