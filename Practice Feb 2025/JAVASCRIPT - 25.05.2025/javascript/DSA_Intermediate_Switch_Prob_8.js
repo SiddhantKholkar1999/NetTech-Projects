@@ -282,9 +282,9 @@ function currencyConversion(currencyVal) {
             console.log("1", currencyVal, "=", conversionRate, "INR");
             break;
         case "INR":
-            console.log("Australian Dollar");
-            conversionRate = 55.9397;
-            console.log("1", currencyVal, "=", conversionRate, "INR");
+            console.log("Indian Rupee");
+            conversionRate = 1;
+            console.log("1", currencyVal, "=", conversionRate, "INR","=> It's Local Currency");
             break;
         case "IDR":
             console.log("Australian Dollar");
