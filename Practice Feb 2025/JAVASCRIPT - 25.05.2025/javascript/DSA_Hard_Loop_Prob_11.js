@@ -3,7 +3,7 @@ const readline = require('readline').createInterface({
     output: process.stdout,
 });
 
-let prime = 1, high = 0, low = 0;
+let prime = 0;
 console.log("PRIME NUMBER CHECKER");
 
 readline.question('Enter Number : ', (input) => {
@@ -11,60 +11,27 @@ readline.question('Enter Number : ', (input) => {
         console.log(`User Number => ${input}`);
         console.log(".......");
         console.log(`Given Input "${input}" is not a Number`);
+        readline.close();
     }
     else if (!Number.isInteger(parseFloat(input))) {
         console.log(`User Number => ${input}`);
         console.log(".......");
         console.log(`Given Input "${input}" is not a Whole or Natural Number`);
+        readline.close();
     }
     else {
         console.log(`User Number => ${input}`);
         console.log(".......");
-        for (let i = 1; i < array.length; i++) {
-            const element = array[i];
-            
+        for (let i = 1; i < parseInt(input); i++) {
+            if (parseInt(input)%i==0)
+                prime++;
         }
-        console.log("You guessed the Right Number");
+        console.log("prime : ",prime);
+        if (prime == 1) {
+            console.log("It's a prime number");
+        } else {
+            console.log("It's not a prime number");
+        }
         readline.close();
     }
 });
-
-function guessNumber() {
-    do {
-        readline.question('Enter Number : ', (input) => {
-            if (Number.isNaN(parseFloat(input))) {
-                console.log(`User Number => ${input}`);
-                console.log(".......");
-                console.log(`Given Input "${input}" is not a Number`);
-                guessNumber();
-            }
-            else if (!Number.isInteger(parseFloat(input))) {
-                console.log(`User Number => ${input}`);
-                console.log(".......");
-                console.log(`Given Input "${input}" is not a Whole or Natural Number`);
-                guessNumber();
-            }
-            else if (parseInt(input) < 0 || parseInt(input) > 100) {
-                console.log(`User Number => ${input}`);
-                console.log(".......");
-                console.log(`Given Input "${input}" is out of Range`);
-                guessNumber();
-            }
-            else if (Math.abs(parseInt(input)) != guess) {
-                console.log(`User Number => ${input}`);
-                console.log(".......");
-                console.log(`Incorrect Guess, ${input < guess ? "TOO LOW":"TOO HIGH"}`);
-                guessNumber();
-            }
-            else {
-                console.log(`User Number => ${input}`);
-                console.log(".......");
-                console.log("You guessed the Right Number");
-                readline.close();
-            }
-        });
-        break;
-    } while (true);
-}
-
-guessNumber();
