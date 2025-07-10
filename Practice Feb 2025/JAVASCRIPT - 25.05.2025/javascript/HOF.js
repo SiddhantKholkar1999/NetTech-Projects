@@ -55,3 +55,19 @@ const countFruits = fruits.reduce((acc, fruit) => {
     return acc;
 }, {});
 console.log(countFruits);
+
+const str = "arihant";
+console.log(str);
+const strArr = str.split('');
+console.log(strArr);
+const countStrArr = strArr.reduce((acc, curr) => {
+    acc[curr] = (acc[curr] || 0) + 1;
+    return acc;
+}, {});
+console.log(countStrArr);
+
+console.log({} === {});
+console.log("A" - 1);
+console.log("2"+2+"2");
+console.log("2"-2);
+
