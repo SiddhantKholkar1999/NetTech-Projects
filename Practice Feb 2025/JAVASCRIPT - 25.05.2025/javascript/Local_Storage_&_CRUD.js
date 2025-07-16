@@ -85,8 +85,15 @@ function UI() {
         editBtn.classList.add('edit-btn');
         editBtn.setAttribute('id', 'edit-btn');
         editBtn.addEventListener('click', function () {
+            document.getElementById('submitAction').innerHTML = 'Update';
             console.log('This is Edit Button');
             console.log(database[index]);
+            document.getElementById('userName').innerHTML = '';
+            document.getElementById('userEmail').innerHTML = '';
+            document.getElementById('userPassword').innerHTML = '';
+            database[index].name = element.name;
+            database[index].email = element.email;
+            database[index].password = element.password;
             // localStorage.removeItem(database);
         });
         
@@ -95,9 +102,14 @@ function UI() {
         deleteBtn.setAttribute('id', 'delete-btn');
         deleteBtn.addEventListener('click', function () {
             console.log('This is delete button');
+            console.log(index);
             console.log(database);
             console.log(database[index]);
-            // tr2.remove();
+            console.log(typeof (database[index]));
+            console.log(database[index].id);
+            delete database[index];
+            tr2.remove();
+            console.log(database);
         });
 
         td6.classList.add('td-6');
