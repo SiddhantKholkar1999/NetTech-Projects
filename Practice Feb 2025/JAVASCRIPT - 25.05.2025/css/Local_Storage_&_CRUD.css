@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+form{
+    padding: 20px 0;
+}
+
+table {
+    border: 4px outset black;
+    text-align: center;
+    width: 75%;
+    text-transform: capitalize;
+}
+
+th,
+td{
+    border: 2px outset black;
+    text-align: center;
+    padding: 4px;
+    text-transform: capitalize;
+}
+
+th,
+td {
+    border: 2px outset black;
+    text-align: center;
+    padding: 4px;
+    text-transform: capitalize;
+}
