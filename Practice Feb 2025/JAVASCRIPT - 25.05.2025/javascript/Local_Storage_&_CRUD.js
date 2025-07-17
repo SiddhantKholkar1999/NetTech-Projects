@@ -107,7 +107,8 @@ function UI() {
             console.log(database[index]);
             console.log(typeof (database[index]));
             console.log(database[index].id);
-            delete database[index];
+            // delete database[index];
+            database.splice(index,1);
             tr2.remove();
             console.log(database);
         });
@@ -124,10 +125,4 @@ function UI() {
     mainDiv.append(table);
 
 
-}
-
-function deleteData() {
-    document.getElementsByClassName('edit-btn').item();
-    console.log('This is delete data');
-    // localStorage.removeItem('formData');
 }
