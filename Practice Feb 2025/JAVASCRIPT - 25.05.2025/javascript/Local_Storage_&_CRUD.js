@@ -1,31 +1,44 @@
 let database = JSON.parse(localStorage.getItem('formData')) || [];
+let currentEdits = null;
 
 function formFunctions(e) {
     e.preventDefault(); //This prevents default loading behaviour which helps to retain input data
-
     let name = document.querySelector('#userName').value;
     let email = document.querySelector('#userEmail').value;
     let password = document.querySelector('#userPassword').value;
     // console.log('Name : ', name);
     // console.log('Email : ', email);
     // console.log('Password : ', password);
-    if (name.length === 0||email.length === 0||password.length === 0) {
+    if (name.length === 0 || email.length === 0 || password.length === 0) {
         alert("Please Fill the Input");
         return
     };
 
-    let inputData = {
-        id: Date.now(),
-        name,
-        email,
-        password,
+    if (currentEdits !== null) {
+        database[currentEdits] = {
+            ...database[currentEdits],
+            name,
+            email,
+            password,
+        }
+        currentEdits = null;
+    } else {
+        let inputData = {
+            id: Date.now(),
+            name,
+            email,
+            password,
+        }
+        // console.log('inputData : ',inputData);
+        // console.log('database : ',database);
+        database.push(inputData);
+        // console.log('database : ',database);
     }
-    // console.log('inputData : ',inputData);
-    // console.log('database : ',database);
-    database.push(inputData);
-    // console.log('database : ',database);
     localStorage.setItem('formData', JSON.stringify(database));
     UI();
+    document.querySelector('#userName').value = '';
+    document.querySelector('#userEmail').value = '';
+    document.querySelector('#userPassword').value = '';
 }
 
 function UI() {
@@ -85,15 +98,16 @@ function UI() {
         editBtn.classList.add('edit-btn');
         editBtn.setAttribute('id', 'edit-btn');
         editBtn.addEventListener('click', function () {
-            document.getElementById('submitAction').innerHTML = 'Update';
             console.log('This is Edit Button');
             console.log(database[index]);
-            document.getElementById('userName').innerHTML = '';
-            document.getElementById('userEmail').innerHTML = '';
-            document.getElementById('userPassword').innerHTML = '';
-            database[index].name = element.name;
-            database[index].email = element.email;
-            database[index].password = element.password;
+            // document.getElementById('userName').innerText = element.name;
+            // document.getElementById('userEmail').innerText = element.email;
+            // document.getElementById('userPassword').innerText = element.password;
+            let user = database[index];
+            document.querySelector('#userName').value = element.name;
+            document.querySelector('#userEmail').value = element.email;
+            document.querySelector('#userPassword').value = element.password;
+            currentEdits = index;
             // localStorage.removeItem(database);
         });
         
@@ -107,10 +121,15 @@ function UI() {
             console.log(database[index]);
             console.log(typeof (database[index]));
             console.log(database[index].id);
-            // delete database[index];
-            database.splice(index,1);
+            // by using inbuilt method
+            /*database.splice(index,1);
             tr2.remove();
-            console.log(database);
+            console.log(database);*/
+            // by using filter method for deletion
+            let deleteData = database.filter((dld) => dld.id !== element.id);
+            database = deleteData;
+            localStorage.setItem('formData', JSON.stringify(database));
+            UI();
         });
 
         td6.classList.add('td-6');
