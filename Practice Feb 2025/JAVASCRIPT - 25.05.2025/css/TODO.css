@@ -1,4 +1,82 @@
-* {
-    padding: 0;
-    
+:root {
+    --bg: #f4f4f4;
+    --text: #222;
+    --card: white;
+    --primary: #3498db;
+    --complete: green;
+}
+
+body#dark {
+    --bg: #121212;
+    --text: #eee;
+    --card: #1e1e1e;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 40px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#todo-input {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#add-btn,
+#dark-mode {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#todo-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.todo-item {
+    background: var(--card);
+    padding: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 6px solid var(--primary);
+}
+
+.todo-item.completed {
+    text-decoration: line-through;
+    border-left-color: var(--complete);
+    color: gray;
+}
+
+.btns {
+    display: flex;
+    gap: 6px;
+}
+
+.btns button {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+input.edit-input {
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 6px;
+    font-size: 15px;
 }
