@@ -6,7 +6,7 @@
     --complete: green;
 }
 
-body#dark {
+body.dark-mode {
     --bg: #121212;
     --text: #eee;
     --card: #1e1e1e;
@@ -21,6 +21,13 @@ body {
 
 h1 {
     text-align: center;
+    margin-top: 0;
+}
+
+#todo-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #controls {
@@ -46,6 +53,7 @@ h1 {
 #todo-container {
     max-width: 500px;
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 .todo-item {

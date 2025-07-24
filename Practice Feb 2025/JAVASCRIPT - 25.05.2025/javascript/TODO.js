@@ -1,3 +1,4 @@
+window.onload = renderTodos;
 // const addBtn = document.getElementById('add-btn');
 let addBtn = document.querySelector('#add-btn');
 // const input = document.getElementById('todo-input');
@@ -97,7 +98,13 @@ addBtn.addEventListener('click', () => {
 });
 
 darkBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
+    document.body.classList.toggle('dark-mode');
+    let darkBtnText = darkBtn.textContent;
+    if (darkBtnText == 'DARK MODE') {
+        darkBtn.textContent = "LIGHT MODE";
+    } else {
+        darkBtn.textContent = "DARK MODE";
+    }
 });
 
 renderTodos();
