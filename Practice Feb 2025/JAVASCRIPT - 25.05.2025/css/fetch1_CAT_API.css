@@ -1,0 +1,41 @@
+/* * {
+    bottom: 0;
+    margin: 0;
+} */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /* margin: 0; */
+    padding: 20px;
+}
+
+#catInfo {
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    justify-items: center;
+    align-self: center;
+    gap: 50px;
+    padding: 20px;
+    /* height: 500px; */
+    /* width: 500px; */
+}
+
+.card_div {
+    display: flex;
+    flex-wrap: wrap;
+    border: 3px outset;
+    border-radius: 30px;    
+}
+
+.card_div img {
+    height: 250px;
+    width: 100%;
+    border-image: fill;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.detail_div {
+    margin: 5px;
+    padding: 5px;
+}
