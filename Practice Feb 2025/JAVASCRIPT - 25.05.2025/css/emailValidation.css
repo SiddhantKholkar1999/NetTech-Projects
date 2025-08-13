@@ -1,0 +1,19 @@
+body
+#myForm{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+}
+
+button{
+    border-radius: 5px;
+    border: 1px solid;
+    width: 70px;
+    padding: 5px;
+}
+
+#message_email,
+#message_password{
+    color: red;
+}
