@@ -11,7 +11,7 @@
 
 - Create server.js
 - Create db.json
-- Go to `package.json` and then change from "test": "echo \"Error: no test specified\" && exit 1" to "scripts" section to `"start": "nodemon server.js"`
+- Go to `package.json` and then change from "test": "echo \"Error: no test specified\" && exit 1" under "scripts" section to `"start": "nodemon server.js"`
 - To create custom server nodemon
     - npm i nodemon
 - npm start 
