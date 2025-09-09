@@ -13,12 +13,14 @@ function App() {
 
   return (
     <>
-      <h1>CALCULATOR</h1>
-      <Calculator counts={num1} incFunc={setNum1} />
-      <Calculator counts={num2} incFunc={setNum2} />
-      <Calculator counts={result} incFunc={setResult} />
-      <InputSection />
-      <OperationButtons/>
+      <div style={{textAlign:"center"}}>
+        {/* <h1>CALCULATOR (from App.jsx)</h1> */}
+        <Calculator
+          num1={num1} setNum1={setNum1}
+          num2={num2} setNum2={setNum2}
+          result={result} setResult={setResult} 
+        />
+      </div>
     </>
   )
 }
