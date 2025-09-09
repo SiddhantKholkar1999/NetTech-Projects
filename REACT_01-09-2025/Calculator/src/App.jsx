@@ -2,8 +2,6 @@ import React from 'react';
 import './App.css';
 
 import { Calculator } from './components/Calculator';
-import { InputSection } from './components/InputSection';
-import { OperationButtons } from './components/OperationButtons';
 
 function App() {
 
