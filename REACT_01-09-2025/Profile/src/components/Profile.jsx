@@ -12,7 +12,7 @@ export const Profile = () => {
                             <div className="info">
                                 <h3 name="name">name: {el.name}</h3>
                                 <p name="profile">profile: {el.designation}</p>
-                                <p name="skill">skill: {el.skill}</p>
+                                <p name="skill">skill: {el.skill + " "}</p>
                                 <div className='platform-div'>
                                     <p name="platform">platform: </p>
                                     {
