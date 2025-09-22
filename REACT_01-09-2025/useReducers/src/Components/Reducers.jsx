@@ -7,11 +7,21 @@ export const Reducers = (state, action) => {
         case 'RESET':
             return { count: 0 };
         case 'IncrementByValue':
-            return { count: state.count + action.payload };
+            if (state.count + action.payload <= 0) {
+                return { count: 0 };
+            }
+            else {
+                return { count: state.count + action.payload };
+            }
+            // return { count: state.count + action.payload };
         case 'DecrementByValue':
             if (state.count - action.payload <= 0) {
                 return { count: 0 };
-            } else {
+            }
+            else if (action.payload < 0 && state.count >=0 && action.payload < state.count) {
+                return { count: 0 };
+            }
+            else {
                 return { count: state.count - action.payload };
             }
         default:
