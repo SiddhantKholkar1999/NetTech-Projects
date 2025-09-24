@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import '../components/CustomComponent.css';
 
 export const CustomComponent = ({props}) => {
     const [formData, setFormData] = useState(
@@ -12,13 +11,27 @@ export const CustomComponent = ({props}) => {
     console.log('formData : ', formData);
     console.log('setFormData : ', setFormData);
     
+    //handle input change
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    }
+    //handle form submission
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+    }
+
     return (
         <>
             <h1>CustomComponents</h1>
-            {
-                props && props.map((el) => (
-                    <form key={el.name}>
-                        <div>
+            <form id='form' onSubmit={handleSubmit}>
+                {
+                    props && props.map((el, i) => (
+                        <div key={i}>
                             <label htmlFor={el.label}>{el.label}</label>
                             <input
                                 type={el.type}
@@ -26,9 +39,9 @@ export const CustomComponent = ({props}) => {
                                 required={el.required}
                             />
                         </div>
-                    </form>
-                ))
-            }
+                    ))
+                }
+            </form>
         </>
     )
 }
