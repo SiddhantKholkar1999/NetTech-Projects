@@ -1,7 +1,7 @@
 import { CustomComponent } from './CustomComponent';
 
 export const Form = () => {
-    const field = [
+    const fields = [
         {
             name: "username",
             placeholder: "enter your username",
@@ -38,9 +38,19 @@ export const Form = () => {
             required: true
         }
     ];
+
+    const handleFormSubmit = (data) => {
+        console.log('Form Submitted:', data);
+    };
+
     return (
         <>
-            <CustomComponent props={field} />
+            <div>
+                <CustomComponent
+                    fields = {fields} 
+                    onSubmit={handleFormSubmit}
+                    buttonText = "Register"/>
+            </div>
         </>
     )
 }
