@@ -6,7 +6,7 @@ const ACTIONS = {
   ERROR: "error",
 };
 
-// this is inisial-state
+// this is initial-state
 const initialState = {
   datas: [],
   error: null,
