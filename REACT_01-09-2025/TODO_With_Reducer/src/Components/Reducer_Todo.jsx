@@ -2,7 +2,7 @@ import { useReducer, useRef } from "react";
 
 import { Reducer } from "../Reducer/Reducer";
 import { InitialValue } from "../Reducer/Store";
-import { ADD_TODO, DELETE_TODO, EDIT_TODO } from "../Reducer/Action";
+import { ADD_TODO } from "../Reducer/Action";
 import { Reducer_List } from "./Reducer_List";
 
 export const Reducer_Todo = () => {
@@ -20,13 +20,14 @@ export const Reducer_Todo = () => {
     };
 
     dispatch({ type: ADD_TODO, payload: todos });
+    inputData.current.value = "";
   };
   return (
     <>
       <h1>Reducer_Todo....</h1>
       <input type="text" name="todo_input" ref={inputData} />
       <button onClick={handleTodo}>add todo</button>
-      <Reducer_List />
+      <Reducer_List state={state} dispatch={dispatch} />
     </>
   );
 };
