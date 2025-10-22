@@ -23,7 +23,9 @@ export const Bread_Crumb = () => {
 
   return (
     <>
-      <div className="crumbs">{crumb}</div>
+      <div className="crumbs">
+        <Link to={crumb}>{crumb}</Link>
+      </div>
     </>
   );
 };

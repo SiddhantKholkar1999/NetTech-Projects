@@ -23,7 +23,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <div>
+      <div style={{ display: "flex", gap: "20px", justifyContent: "center" }}>
         {Links.map((el, i) => (
           <NavLink
             end

@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Home = () => {
+export const Dummy = () => {
   return (
     <>
-      <h1>home</h1>
+      <h1>Dummy</h1>
     </>
   );
 };
