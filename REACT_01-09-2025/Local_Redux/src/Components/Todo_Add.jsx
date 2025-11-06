@@ -18,6 +18,7 @@ export const Todo_Add = () => {
     };
 
     dispatch({ type: ADD_TODOS, payload: todosObj });
+    // dataValue.current.value = "";
   };
   return (
     <>
@@ -25,8 +26,6 @@ export const Todo_Add = () => {
 
       <input type="text" placeholder="Enter Todos..." ref={dataValue} />
       <button onClick={addTodos}>Add</button>
-
-      <Todo_List />
     </>
   );
 };
