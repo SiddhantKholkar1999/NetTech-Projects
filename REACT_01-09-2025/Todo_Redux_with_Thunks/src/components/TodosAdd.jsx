@@ -37,6 +37,7 @@ export const TodosAdd = () => {
     // dispatch({ type: types.ADD_TODO_REQUEST });
     // const values = elementData.current.value;
     // dispatch(AddTodo({ values }));
+    elementData.current.value = "";
   };
 
   // if (value.isLoading) {

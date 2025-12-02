@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+/* eslint-disable no-unused-vars */
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getRequestTodo,
@@ -24,9 +25,10 @@ export const TodosList = () => {
   console.log("🚀 ~ todos:", todos);
   const dispatch = useDispatch();
 
-  // For edit mode
-  const [editId, setEditId] = useState(null);
-  const [editText, setEditText] = useState("");
+  // // For edit mode
+  // const [editId, setEditId] = useState(null);
+  // const [editText, setEditText] = useState("");
+  const editText = useRef(null);
 
   // Delete Todo
   const handleDelete = (id) => {
@@ -39,54 +41,82 @@ export const TodosList = () => {
   };
 
   // Start Edit Mode
-  const handleEdit = (todo) => {
-    console.log("🚀 ~ todo:", todo);
+  const handleEdit = (id) => {
     // if (!todo.isEdits) return;
     // setEditId(todo.id);
     // setEditText(todo.text);
 
-    if (!todo.isEdits) {
-      const updatedTodo = { ...todo, isEdits: true };
+    console.log("Edit Function Called");
 
-      dispatch(editTodoRequest());
-      axios
-        .patch(`${API}/${todo.id}`, updatedTodo)
-        .then((res) => dispatch(editTodoSuccess(res.data)))
-        .catch((err) => dispatch(editTodoFailure(err)));
+    dispatch(editTodoRequest());
 
-      setEditId(todo.id);
-      setEditText(todo.text);
-      return;
-    }
+    // const updatedTodo = todos.map((el) =>
+    //   el.id === id ? { ...el, text: editText, isEdits: !el.isEdits } : el
+    // );
+    const updatedTodo = todos
+      // .map((el) => (el.id === id ? { ...el, isEdits: !el.isEdits } : null))
+      .map((el) => (el.id === id ? { ...el, isEdits: true } : null))
+      .filter((el) => el != null);
+    console.log("data", updatedTodo);
 
-    setEditId(todo.id);
-    setEditText(todo.text);
+    axios
+      .patch(`${API}/${id}`, ...updatedTodo)
+      .then((res) => dispatch(editTodoSuccess([id, res.data])))
+      .catch((err) => dispatch(editTodoFailure(err)));
+
+    // setEditId(id);
+    // setEditText(editText);
   };
 
   // Save Edited Todo
-  const handleSave = (todo) => {
-    const updatedTodo = { ...todo, text: editText };
+  const handleSave = (id) => {
+    const updatedTodo = todos.map((el) =>
+      el.id === id
+        ? // ? { ...el, text: editText.current.value, isEdits: !el.isEdits }
+          { ...el, text: editText.current.value, isEdits: false }
+        : el
+    );
+    console.log("🚀 ~ updatedTodo:", updatedTodo);
+
     // dispatch(editTodoSuccess({ ...todo, title: editText }));
     dispatch(editTodoRequest());
     axios
-      .patch(`${API}/${todo.id}`, updatedTodo)
+      // .patch(`${API}`, updatedTodo)
+      .patch(`${API}/${id}`, ...updatedTodo)
       .then((res) => dispatch(editTodoSuccess(res.data)))
       .catch((err) => dispatch(editTodoFailure(err)));
-    setEditId(null);
+    // setEditId(null);
   };
 
-  // Toggle Completion
-  const handleToggle = (id) => {
-    // dispatch(completeTodoSuccess(id));
-    dispatch(completeTodoRequest());
-    const found = todos.find((t) => t.id === id);
-    const updated = { ...found, completed: !found.completed };
-
+  // Cancel Edited Todo
+  const handleCancel = (id) => {
+    const updatedTodo = todos.map((el) =>
+      // el.id === id ? { ...el, isEdits: !el.isEdits } : el
+      el.id === id ? { ...el, isEdits: false } : el
+    );
+    console.log("🚀 ~ updatedTodo:", updatedTodo);
+    // dispatch(editTodoSuccess({ ...todo, title: editText }));
+    dispatch(editTodoRequest());
     axios
-      .patch(`${API}/${id}`, updated)
-      .then(() => dispatch(completeTodoSuccess(id)))
-      .catch((err) => dispatch(completeTodoFailure(err)));
+      // .patch(`${API}`, updatedTodo)
+      .patch(`${API}/${id}`, ...updatedTodo)
+      .then((res) => dispatch(editTodoSuccess(res.data)))
+      .catch((err) => dispatch(editTodoFailure(err)));
+    // setEditId(null);
   };
+
+  // // Toggle Completion
+  // const handleToggle = (id) => {
+  //   // dispatch(completeTodoSuccess(id));
+  //   dispatch(completeTodoRequest());
+  //   const found = todos.find((t) => t.id === id);
+  //   const updated = { ...found, completed: !found.completed };
+
+  //   axios
+  //     .patch(`${API}/${id}`, updated)
+  //     .then(() => dispatch(completeTodoSuccess(id)))
+  //     .catch((err) => dispatch(completeTodoFailure(err)));
+  // };
 
   const getApiCall = () => {
     console.log("Hello");
@@ -124,51 +154,57 @@ export const TodosList = () => {
         {/* <h2>Todo List</h2> */}
         <ul style={{ listStyle: "none", padding: 0 }}>
           {todos.length > 0 &&
-            todos.map((todo) => (
-              <li
-                key={todo.id}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  marginBottom: "10px",
-                }}
-              >
-                {editId === todo.id ? (
-                  <>
-                    <input
-                      // value={editText}
-                      value={todo.text}
-                      onChange={(e) => setEditText(e.target.value)}
-                    />
-                    <button onClick={() => handleSave(todo)}>Save</button>
-                    <button onClick={() => setEditId(null)}>Cancel</button>
-                  </>
-                ) : (
-                  <>
-                    <span
-                      onClick={() => handleToggle(todo.id)}
+            todos.map((el) => {
+              console.log("🚀 ~ el:", el);
+              return (
+                <li
+                  key={el.id}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    marginBottom: "10px",
+                  }}
+                >
+                  {/* {editId === el.id ? ( */}
+                  {el.isEdits ? (
+                    <>
+                      <input
+                        ref={editText}
+                        title={el.text}
+                        // value={el.text}
+                        // onChange={(e) => setEditText(e.target.value)}
+                      />
+                      <button onClick={() => handleSave(el.id)}>Save</button>
+                      <button onClick={() => handleCancel(el.id)}>
+                        Cancel
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      {/* <span
+                      onClick={() => handleToggle(el.id)}
                       style={{
-                        textDecoration: todo.completed
-                          ? "line-through"
-                          : "none",
+                        textDecoration: el.completed ? "line-through" : "none",
                         cursor: "pointer",
                         flexGrow: 1,
                       }}
                     >
-                      {todo.text}
-                    </span>
-                    <button onClick={() => handleEdit(todo)}>Edit</button>
-                    <button onClick={() => handleDelete(todo.id)}>
-                      Delete
-                    </button>
-                    <button onClick={() => handleToggle(todo.id)}>
-                      {todo.completed ? "Undo" : "Complete"}
-                    </button>
-                  </>
-                )}
-              </li>
-            ))}
+                      {el.text}
+                    </span> */}
+                      {el.text}
+                      <button onClick={() => handleEdit(el.id)}>Edit</button>
+                      <button onClick={() => handleDelete(el.id)}>
+                        Delete
+                      </button>
+                      {/* <button onClick={() => handleToggle(el.id)}>
+                      {el.completed ? "Undo" : "Complete"}
+                    </button> */}
+                    </>
+                  )}
+                </li>
+              );
+            })}
         </ul>
       </div>
     </>

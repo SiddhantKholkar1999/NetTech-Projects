@@ -71,8 +71,8 @@ export const todosReducer = (oldState = initialState, { type, payload }) => {
         ...oldState,
         isLoading: false,
         isError: false,
-        todos: oldState.todos.map((todo) => {
-          todo.id === payload.id ? payload : todo;
+        todos: oldState.todos.map((el) => {
+          return el.id === payload.id ? payload.data : el;
         }),
       };
     }

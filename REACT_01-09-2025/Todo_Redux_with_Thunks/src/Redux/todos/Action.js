@@ -50,7 +50,8 @@ export const editTodoRequest = () => ({
 
 export const editTodoSuccess = (payload) => ({
   type: types.EDITS_TODO_SUCCESS,
-  payload: payload,
+  // payload: payload,
+  payload: { id: payload[0], data: payload[1] },
 });
 
 export const editTodoFailure = (payload) => ({
