@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodosItems from "./TodosItems";
+import { useCallback } from "react";
 
 const initialTodos = [
   {
@@ -25,14 +26,46 @@ export const Todos = () => {
       status: false,
     };
     setData([...data, Value]);
-    console.log(setText(""));
     setText("");
   };
+
+  //With Dependency
+  //   const handleEdits = useCallback(
+  //     (id) => {
+  //       let todoEdits = data.map((ed) =>
+  //         ed.id === id ? { ...ed, status: !ed.status } : ed
+  //       );
+  //       setData(todoEdits);
+  //     },
+  //     [data]
+  //   );
+
+  //Without Dependency
+  const handleEdits = useCallback((id) => {
+    setData((prev) =>
+      prev.map((ed) => (ed.id === id ? { ...ed, status: !ed.status } : ed))
+    );
+  }, []);
+
+  //With Dependency
+  //   const handleDelete = useCallback(
+  //     (id) => {
+  //       let todoEdits = data.filter((ed) => ed.id !== id);
+  //       setData(todoEdits);
+  //     },
+  //     [data]
+  //   );
+
+  //Without Dependency
+  const handleDelete = useCallback((id) => {
+    setData((prev) => prev.filter((ed) => ed.id !== id));
+  }, []);
 
   return (
     <>
       <input
-        value={text}
+        // value={text}
+        defaultValue={text}
         type="text"
         onChange={(e) => setText(e.target.value)}
       />
@@ -40,9 +73,18 @@ export const Todos = () => {
       {data &&
         data.map((el) => {
           return (
-            <TodosItems id={el.id} text={el.currentTodo} status={el.status} />
+            <TodosItems
+              key={el.id}
+              {...el}
+              handleEdits={handleEdits}
+              handleDelete={handleDelete}
+            />
           );
         })}
     </>
   );
 };
+
+{
+  /* <TodosItems id={el.id} text={el.currentTodo} status={el.status} /> */
+}

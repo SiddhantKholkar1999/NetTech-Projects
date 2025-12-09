@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useMemo } from "react";
 
-// const expensiveOperation = (value) => {
-//   for (let i = 1; i < value; i++) {
-//     continue;
-//   }
-//   return true;
-// };
+const expensiveOperation = (value) => {
+  let start = Date.now();
+  while (Date.now() - start <= value) {
+    continue;
+  }
+  return true;
+};
 
-const TodosItems = ({ id, text, status }) => {
+// const TodosItems = ({ id, text, status }) => {
+const TodosItems = ({ id, currentTodo, status, handleDelete, handleEdits }) => {
   // expensive operation sync-behaviour
+  useMemo(() => expensiveOperation(200), []);
   //   expensiveOperation(200);
 
   return (
@@ -23,11 +26,24 @@ const TodosItems = ({ id, text, status }) => {
         }}
       >
         <h3>{id}</h3>
-        <h2>{text}</h2>
+        {/* <h2>{text}</h2> */}
+        <h2>{currentTodo}</h2>
         <h3>{status ? "true" : "false"}</h3>
+        <button onClick={() => handleEdits(id)}>edit</button>
+        <button onClick={() => handleDelete(id)}>delete</button>
       </div>
     </>
   );
 };
 
+// const checkEquals = (prevValue, currentValue) => {
+//   return (
+//     prevValue.currentTodo === currentValue.currentTodo &&
+//     prevValue.status === currentValue.status
+//   );
+// };
+
+// higher order components
+// export default TodosItems;
 export default React.memo(TodosItems);
+// export default React.memo(TodosItems, checkEquals);
