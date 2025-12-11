@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "proptypes";
+import PropTypes from "prop-types";
 
 export const CustomComponent = ({ fields, onSubmit, buttonText }) => {
   const [formData, setFormData] = React.useState(() => {
