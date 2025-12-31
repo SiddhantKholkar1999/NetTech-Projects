@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "nanoid": "^5.1.6",
-    "react-redux": "^9.2.0"
-  }
-}
