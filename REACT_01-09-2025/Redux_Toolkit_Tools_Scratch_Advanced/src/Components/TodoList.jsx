@@ -11,7 +11,13 @@ export const TodoList = () => {
   const dispatch = useDispatch();
 
   const handleEdit = (id) => {
-    // dispatch(types.updateTodos({ id }));
+    let todohttp = {
+      text: todo.text,
+      isCompleted: false,
+      isEdits: true,
+    };
+    dispatch();
+    // dispatch(types.updateTodos(id, { isEdits: true }));
   };
 
   const handleDelete = (id) => {

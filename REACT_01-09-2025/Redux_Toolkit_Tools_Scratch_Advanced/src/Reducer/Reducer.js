@@ -37,6 +37,15 @@ const myOwnTodoReducer = createSlice({
       };
       state.todoItems.push(todo);
     },
+    editTodos: (state, action) => {
+      const todo = {
+        id: action.payload.id,
+        text: action.payload,
+        isEdits: true,
+        isComplete: false,
+      };
+      state.todoItems.push(todo);
+    },
   },
   selectors: {
     todo: (state) => state.todoItems,
@@ -75,7 +84,7 @@ const myOwnTodoReducer = createSlice({
   },
 });
 
-export const { addTodos } = myOwnTodoReducer.actions;
+export const { addTodos, editTodos } = myOwnTodoReducer.actions;
 
 export const { todo } = myOwnTodoReducer.getSelectors((value) => value.todo);
 
